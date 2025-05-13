@@ -1,0 +1,142 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #c8e7ff, #d3fbd8);
+      background-image: url('https://www.transparenttextures.com/patterns/party-hats.png');
+      background-size: 300px;
+      background-repeat: repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .container {
+      perspective: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 320px;
+      height: 220px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1.5s ease-in-out;
+      cursor: pointer;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card-front {
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      color: #333;
+    }
+
+    .card-back {
+      background: linear-gradient(135deg, #d4fc79, #96e6a1);
+      transform: rotateY(180deg);
+      color: #333;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    p.typewriter {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .date {
+      margin-top: 15px;
+      background: #ffffffcc;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .balloon {
+      position: absolute;
+      width: 30px;
+      height: 40px;
+      background: radial-gradient(circle, #f6d365, #fda085);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      width: 2px;
+      height: 15px;
+      background: #888;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0%   { transform: translateY(0) rotate(0deg); }
+      50%  { transform: translateY(-30px) rotate(3deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      animation: drop 3s ease-out forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes drop {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(500px) rotate(360deg);
+        opacity: 0;
+      }
+    }
